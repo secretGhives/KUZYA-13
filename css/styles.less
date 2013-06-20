@@ -1,0 +1,258 @@
+/* IMPORTS */
+@import url("css/normalize.css");
+
+/* COMMON LEGAXY STYLES */
+::scrollbar {width: 13px;}
+::scrollbar-track {box-shadow: inset 0 0 6px rgba(0,0,0,0.3); border-radius: 3px;}
+::scrollbar-thumb {border-radius: 3px; background: #666;}
+
+
+/* LESS ELEMENTS */
+
+.opacity(@opacity: 0.5) {
+  -moz-opacity: @opacity;
+  -khtml-opacity: @opacity;
+  -webkit-opacity: @opacity;
+  opacity: @opacity;
+  @opperc: @opacity * 100;
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+  filter: ~"alpha(opacity=@{opperc})";
+}
+.transition-duration(@duration: 0.2s) {
+  -moz-transition-duration: @duration;
+  -webkit-transition-duration: @duration;
+  -o-transition-duration: @duration;
+  transition-duration: @duration;
+}
+.transform(...) {
+  -webkit-transform: @arguments;
+  -moz-transform: @arguments;
+  -o-transform: @arguments;
+  -ms-transform: @arguments;
+  transform: @arguments;
+}
+.rotation(@deg:5deg){
+  .transform(rotate(@deg));
+}
+.scale(@ratio:1.5){
+  .transform(scale(@ratio));
+}
+.transition(@duration:0.2s, @ease:ease-out) {
+  -webkit-transition: all @duration @ease;
+  -moz-transition: all @duration @ease;
+  -o-transition: all @duration @ease;
+  transition: all @duration @ease;
+}
+.translate(@x:0, @y:0) {
+  .transform(translate(@x, @y));
+}
+.user-select(@argument: none) {
+  -webkit-user-select: @argument;
+  -moz-user-select: @argument;
+  -ms-user-select: @argument;
+  user-select: @argument;
+}
+.pointer-events(@argument: none) {
+  -webkit-pointer-events: @argument;
+  -moz-pointer-events: @argument;
+  -ms-pointer-events: @argument;
+  pointer-events: @argument;
+}
+
+/* LESS STYLES */
+
+// Common Variables
+@window-width: '$(window).height()';
+@base-logo-color: #f00;
+@base-logo-dimensions: 333px;
+
+
+// Base styles
+body {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.left {
+	background: #fff;
+	top: 0;
+	left: 0;
+	position: absolute;
+	z-index: 9;
+	bottom: 0;
+	width: 50%;
+	.transition(0.1s, ease-in);
+	&.open {
+		background: #fff;
+		.transition(1s, ease-out);
+	}
+}
+
+.right {
+	bottom: 0;
+	background: #fff;
+	right: 0;
+	top: 0;
+	position: absolute;
+	z-index: 9;
+	width: 50%;
+	.transition(0.1s, ease-in);
+	&.open {
+		background: #fff;
+		.transition(1s, ease-out);
+	}
+}
+
+ .logo {
+	position: absolute;
+	top: 36%;
+	left: 42%;
+	width: @base-logo-dimensions;
+	height: @base-logo-dimensions;
+	z-index: 10;
+	background-image: url(/img/kuzyaLogo.png);
+	background-size: cover;
+	.transition(0.333s, ease-in);
+	.user-select(none);
+	&.open {
+		//top: 0;
+		//left: 0;
+		.scale(0.5);
+		.transition(0.333s, ease-out);
+		//.pointer-events(none);
+	}
+	&.hide {
+		.scale(0);
+		.transition(0.333s, ease-out);
+		.pointer-events(none);
+	}
+}
+
+#social-links {
+	font-size: 12px;
+	position: absolute;
+	top: 36%;
+	left: 0;
+	right: 0;
+	text-align: center;
+	z-index: 10;
+	.transition(1s, ease-in);
+	.user-select(none);
+	&.hide {
+		.scale(0);
+		.transition(0.111s, ease-out);
+		.pointer-events(none);
+	}
+}
+
+
+#content {
+
+}
+
+
+// Album
+.album {
+	.scale(0.2);
+
+	.figure_wrap {
+
+		.figure {
+			display: block;
+
+			.image {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}
+
+.picasagallery_header {
+z-index: 3;
+position: absolute;
+top: 32px;
+right: 142px;
+width: 0;
+height: 0;
+border-top: 19px solid transparent;
+border-bottom: 19px solid transparent;
+border-right: 36px solid rgba(255, 255, 255, 0.42);
+}
+
+.picasagallery_title {
+z-index: 4;
+position: absolute;
+top: 32px;
+right: 32px;
+background: rgba(255, 255, 255, 0.42);
+padding: 9px 13px;
+width: 73px;
+text-align: center;
+}
+
+#album_wrap {
+	display: block;
+	position: absolute;
+	top: 73px;
+	bottom: 73px;
+	left: 0;
+	right: 0;
+}
+.picasagallery_album {
+	display: inline-block;
+	vertical-align: top;
+	width: calc(100% / 3);
+	height: 100%;
+	background-size: cover;
+	strong {
+		display: block;
+		text-align: right;
+		background: rgba(255, 255, 255, 0.42);
+		padding: 13px 13px 0;
+		position: relative;
+		top: 90%;
+	}
+	em {
+		font-size: 11px;
+		text-align: right;
+		background: rgba(255, 255, 255, 0.32);
+		position: relative;
+		top: 90%;
+		display: block;
+		padding: 0 13px 0;
+	}
+}
+
+.picasagallery_thumbnail {
+	display: inline-block;
+	width: calc(100% / 6);
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+#galleries {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+}
+
+#image {
+background-size: contain;
+background-position: center center;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+}
+
+
