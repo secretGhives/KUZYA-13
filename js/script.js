@@ -17,7 +17,7 @@ $(document).ready(function() {
 			$(".left").stop().animate({width:'0px'}, 666 ).addClass("open");
 			$(".right").stop().animate({width:'0px'}, 666 ).addClass("open");
 			$(this).stop().addClass("open");
-			$("#social-links").addClass('hide');
+			$("#social-links, #sublogo").addClass('hide');
 
 			$curtainOpen = true;
 
@@ -27,7 +27,7 @@ $(document).ready(function() {
 			$(".left").stop().animate({width:'50%'}, 333 ).removeClass("open");
 			$(".right").stop().animate({width:'50%'}, 333 ).removeClass("open");
 			$(this).stop().removeClass("open");
-			$("#social-links").removeClass('hide');
+			$("#social-links, #sublogo").removeClass('hide');
 
 			$curtainOpen = false;
 

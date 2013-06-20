@@ -106,13 +106,38 @@ body {
 	}
 }
 
- .logo {
+@keyframes rotate-logo {
+	0%   { transform: perspective(814px) rotateY(-10deg); }
+	100% { transform: perspective(814px) rotateY(10deg); }
+}
+
+#sublogo {
+	transform-style: preserve-3d;
+	animation: rotate-logo 2s infinite alternate ease-in-out;
+	transform: perspective(1000px) rotateY(0deg);
+	transition: all 2s ease-in-out;
+
+	position: absolute;
+	top: 36%;
+	left: 42%;
+	width: @base-logo-dimensions + 2;
+	height: @base-logo-dimensions + 2;
+	opacity: 0.3;
+	z-index: 10;
+	background-image: url(/img/kuzyaLogo.png);
+	background-size: cover;
+	&.hide {
+		display: none;
+	}
+}
+
+.logo {
 	position: absolute;
 	top: 36%;
 	left: 42%;
 	width: @base-logo-dimensions;
 	height: @base-logo-dimensions;
-	z-index: 10;
+	z-index: 11;
 	background-image: url(/img/kuzyaLogo.png);
 	background-size: cover;
 	.transition(0.333s, ease-in);
@@ -184,14 +209,18 @@ border-right: 36px solid rgba(255, 255, 255, 0.42);
 }
 
 .picasagallery_title {
-z-index: 4;
-position: absolute;
-top: 32px;
-right: 32px;
-background: rgba(255, 255, 255, 0.42);
-padding: 9px 13px;
-width: 73px;
-text-align: center;
+	z-index: 4;
+	position: absolute;
+	top: 32px;
+	right: 32px;
+	background: rgba(255, 255, 255, 0.42);
+	padding: 9px 13px;
+	width: 73px;
+	text-align: center;
+	a {
+		text-decoration: none;
+		color: #000;
+	}
 }
 
 #album_wrap {
