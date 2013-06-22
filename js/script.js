@@ -14,8 +14,8 @@ $(document).ready(function() {
 
 		if ( $curtainOpen == false ) {
 
-			$(".left").stop().animate({width:'0px'}, 666 ).addClass("open");
-			$(".right").stop().animate({width:'0px'}, 666 ).addClass("open");
+			$(".left").stop().animate({width:'0px'}, 0.1 ).addClass("open");
+			$(".right").stop().animate({width:'0px'}, 0.1 ).addClass("open");
 			$(this).stop().addClass("open");
 			$("#social-links, #sublogo").addClass('hide');
 
@@ -24,8 +24,8 @@ $(document).ready(function() {
 		} else {
 
 			//$(this).stop().animate({background: '#0f0'}, {queue:false, duration:333});
-			$(".left").stop().animate({width:'50%'}, 333 ).removeClass("open");
-			$(".right").stop().animate({width:'50%'}, 333 ).removeClass("open");
+			$(".left").stop().animate({width:'50%'}, 0.1 ).removeClass("open");
+			$(".right").stop().animate({width:'50%'}, 0.1 ).removeClass("open");
 			$(this).stop().removeClass("open");
 			$("#social-links, #sublogo").removeClass('hide');
 

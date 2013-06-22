@@ -10,6 +10,14 @@
 @top-right-corner: 					13px;
 @title-background: 					rgba(255, 255, 255, 0.42);
 
+// Global Add-ns
+.frame-it {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
 
 /* LESS APP LAYOUT STYLES */
 
@@ -20,11 +28,7 @@
 }
 
 body {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	.frame-it;
 }
 
 
@@ -124,11 +128,7 @@ body {
 
 // View of Galleries
 #galleries {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	.frame-it;
 	z-index: 2;
 
 	// Galleries level
@@ -165,7 +165,7 @@ body {
 	// Album level
 	.picasagallery_header {
 		z-index: 3;
-		position: absolute;
+		position: fixed;
 		top: 13px;
 		right: 119px;
 		width: 0;
@@ -176,7 +176,7 @@ body {
 	}
 	.picasagallery_title {
 		z-index: 4;
-		position: absolute;
+		position: fixed;
 		top: @top-right-corner;
 		right: @top-right-corner;
 		background: @title-background;
@@ -201,122 +201,33 @@ body {
 	#image {
 		background-size: contain;
 		background-position: center center;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
+		.frame-it;
 	}
 
 }
 
 
-
-
-
-
-
-
 // Loader
-.loading  {
-    top:50%;
-    left: 50%;
-		margin-left: -22px;
-		margin-top: -22px;
-    position: absolute;
-    width: 3em;
-    height: 3em;
-    animation-name:rotate;
+.loader {
+  height:1px;
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
 }
 
-.loading,
-.loading:before,
-.loading:after  {
-    border-radius: 100%;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in;
+.innerLoader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  background: #000;
+  animation: loader 1s infinite;
 }
 
-.loading:before,
-.loading:after  {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: inherit;
-    height: inherit;
-}
-
-.loading:before  {
-    background: rgba(200, 250, 100, 0);
-    animation-name: ring;
-}
-
-.loading:after  {
-    background: rgba(250, 0, 200, 0);
-    animation-name: ring2;
-}
-
-@keyframes rotate  {
-    0%  {
-        transform: rotateZ(0deg) scaleX(0.1) scaleY(0.1) translateZ(0);
-        box-shadow: inset 0.8em 0 0 rgba(255, 0, 0, 0.5),
-                    inset 0 0.8em 0 rgba(252, 150, 0, 0.5),
-                    inset -0.8em 0 0 rgba(0, 255, 0, 0.5),
-                    inset 0 -0.8em 0 rgba(0, 150, 255, 0.5);
-    }
-
-    /* hidden */
-
-    85%, 100%  {
-
-    /* 360deg * 10 */
-
-        transform: rotateZ(3600deg) scaleX(2.01) scaleY(2) translateZ(0);
-        box-shadow: inset 0 0 0 rgba(255, 0, 0, 0),
-                    inset 0 0 0 rgba(252, 150, 0, 0),
-                    inset 0 0 0 rgba(0, 255, 0, 0),
-                    inset 0 0 0 rgba(0, 150, 255, 0);
-    }
-}
-
-@keyframes ring  {
-    0%  {
-        transform: scaleX(0.1) scaleY(0.5);
-        box-shadow: inset 0.8em 0 0 rgba(255, 0, 0, 0.5),
-                    inset 0 0.8em 0 rgba(252, 150, 0, 0.5),
-                    inset -0.8em 0 0 rgba(0, 255, 0, 0.5),
-                    inset 0 -0.8em 0 rgba(0, 150, 255, 0.5);
-    }
-
-    /* hidden */
-
-    75%, 100%  {
-        transform: scaleX(2) scaleY(2.1);
-        box-shadow: inset 0 0 0 rgba(255, 0, 0, 0),
-                    inset 0 0 0 rgba(252, 150, 0, 0),
-                    inset 0 0 0 rgba(0, 255, 0, 0),
-                    inset 0 0 0 rgba(0, 150, 255, 0);
-    }
-}
-
-@keyframes ring2  {
-    0%  {
-        transform: scaleX(0.5) scaleY(0.1);
-        box-shadow: inset 0.8em 0 0 rgba(255, 0, 0, 0.5),
-                    inset 0 0.8em 0 rgba(252, 150, 0, 0.5),
-                    inset -0.8em 0 0 rgba(0, 255, 0, 0.5),
-                    inset 0 -0.8em 0 rgba(0, 150, 255, 0.5);
-    }
-
-    /* hidden */
-
-    65%, 100%  {
-        transform: scaleX(2) scaleY(2.1);
-        box-shadow: inset 0 0 0 rgba(255, 0, 0, 0),
-                    inset 0 0 0 rgba(252, 150, 0, 0),
-                    inset 0 0 0 rgba(0, 255, 0, 0),
-                    inset 0 0 0 rgba(0, 150, 255, 0);
-    }
+@keyframes loader {
+ 	from { left:50%; right:50%; }
+  to { left:0; right:0; }
 }
