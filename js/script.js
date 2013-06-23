@@ -75,6 +75,4 @@ $(window).load(function() {
 		$(".logo").removeClass('hide');
 	});
 
-	$('.picasagallery_header').html("");
-
 });
