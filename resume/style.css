@@ -1,313 +1,102 @@
 /* Default Styles
 --------------------------------------------------- */
-
-body {
-    margin: 0px;
-    padding: 0px;
-    background: #f3f3f3;  
-    background-color: inherit;
-    font-size: 16px; 
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    color: #000;
-}
-
-a:link { 
-    text-decoration: underline;
-    color: #000;
-    font-weight: bold;
-}
-
-a:visited { 
-    text-decoration: underline;
-    color: #000;
-    font-weight: bold;
-}
-
-a:hover { 
-    text-decoration: underline;
-    color: #669933;
-    font-weight: bold;
-}
-
-a:active { 
-    text-decoration: underline;
-    color: #000;
-    font-weight: bold;
-}
-
-#wrapper    {
-    width: 960px;
-    margin: 0 auto;    
-}
-
-#content {
-    background-color: #eee;
-    width: 955px;
-    text-align: left;
-    overflow: auto;
-    position: relative;
-    margin: 25px 0px 25px 0px;
-    border: #fff solid 2px;
-}
-
-.clear    {
-    float: none;
-    clear: both;
-    margin: 20px 0px 20px 0px;
-}
+body {background: #eee;}
+.inline { display: inline-block;}
+section {margin-top: 2em;}
 
 
 /* Header
 --------------------------------------------------- */
-
-
-#contact-details .header_1 {
-    float: left;
-    width: 350px;
-    text-align: center;
-    margin: 40px 0px 0px 20px;
+#qr_code {
+    background: url("http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0AVERSION%3A2.1%0AFN%3AAlekse%20Kuzenkov%0AN%3AKuzenkov%3BAlekse%0ATITLE%3AFront-End%20Developer%0ATEL%3BCELL%3A(506)%208939-1807%0AEMAIL%3BHOME%3BINTERNET%3Aemail%40kuzya.com%0AEMAIL%3BWORK%3BINTERNET%3Aakuzenkov%40gmail.com%0AURL%3Ahttp%3A%2F%2Fkuzya.com%0AADR%3A%3B%3B%3B%3B%3B%3BCosta%20Rica%0AORG%3AKUZYA%20Inc%0AEND%3AVCARD%0A&#38;size=250x250&#38;prov=goqrme");
+    background-size: cover;
+    background-position: center center;
+    width: 250px;
+    height: 250px;
+    display: inline-block;
+    margin: 13px;
 }
-
-#contact-details .header_1 img {
-    border: #fff solid 3px;
-    padding: 9px;
-    background: #fff;
-    margin: 10px 0px 0px 0px;
-}
-
-#contact-details .header_2 {
-    float: left;
-    width: 570px;
-    margin: 40px 0px 0px 10px;
-}
-
-#contact-details .header_2 a {
-    font-weight: normal;
-}
-
-#contact-details  h1    {
-    margin: 0px 0px 0px 20px;
-    font-size: 52px;
-    font-weight: bold;
-}
-
-#contact-details  h3    {
-    margin: 0px 0px 32px 20px;
-    font-size: 30px;
-    font-weight: bold;
-    font-style: italic;
-}
-
-#contact-details ul.info_1    {
-    list-style: none;
-    margin: 0px 0px 0px -12px;
-    font-size: 18px;
-}
-
-#contact-details ul.info_2    {
-    list-style: none;
-    margin: 0px 0px 15px -12px;
-    font-size: 18px;
-}
-
-#contact-details li.address    {
-    padding: 0px 0px 12px 40px;
-}
-
-#contact-details li.phone    {
-    padding: 0px 0px 12px 40px;
-}
-
-#contact-details li.email    {
-    padding: 0px 0px 12px 40px;
-}
-#contact-details li.email:before    {
-    content: "email:";
-}
-
-#contact-details li.site_url    {
-    padding: 0px 0px 12px 40px;
-}
-#contact-details li.site_url:before    {
-    content: "web:";
-}
-#contact-details li.linkedin    {
-    padding: 0px 0px 12px 40px;
-}
-#contact-details li.linkedin:before    {
-    content: "linkedIn:";
-}
+.profile_details {display: inline-block;vertical-align: top;}
+.contacts .inline:before {content: "*";margin: 3px;}
 
 
 /* Main Content
 --------------------------------------------------- */
-
-h2.top    {
-    margin: 0px; 
-    font-size: 22px;
-    font-weight: bold;
+#content {
+padding: 13px;
+border: 1px solid rgb(231, 231, 231);
+width: 980px;
+margin: 2em auto;
+border-radius: 13px;
+background: #fff;
+}
+.summary p {font-size: 19px;line-height: 1;}
+section h1 {font-size: 28px;}
+#skills details {
+display: inline-block;
+width: calc(100% / 3.1);
+vertical-align: top;
+}
+summary {
+font-size: 24px;
+line-height: 1;
+padding: 2px;
+}
+details li {
+display: inline-block;
+font-size: 18px;
+margin: 6px;
+padding: 3px 6px;
+border: 1px solid;
 }
 
-h2    {
-    margin: 40px 0px 0px 0px; 
-    font-size: 22px;
-    font-weight: bold;
+#experience details {
+display: inline-block;
+vertical-align: top;
+margin: 3px;
+padding: 6px 9px;
+width: calc(100% /3.3);
 }
-
-
-dl    {
-    margin: 0px 50px 0px 0px;
+span[itemprop=name] {
+display: block;
+font-size: 16px;
+font-weight: bold;
+line-height: 1.3;
+padding-left: 34px;
 }
-
-
-dt    {
-    float: left;
-    width: 200px;
-    font-size: 20px;
-    font-weight: bold;
-    font-style: italic;
-    text-align: right;
+.time {
+display: block;
+padding-left: 36px;
 }
-
-dd    {
-    width: 620px; 
-    float: right;
-    margin-right: 20px;
-}
-
-dl#contact     {
-    margin: 0px;
-}
-
-dt#contact     {
-    margin: 0px;
-}
-
-dd#contact     {
-    margin: 0px;
-}
-
-p.bus1    {
-    margin: 0px;
-    font-weight: bold;
-    color: #669933;
-}
-
-p.edu-info    {
-    margin: 10px 0px 0px 0px;
-    font-weight: bold;
-    color: #669933;
-}
-
-p.edu-info a    {
-    color: #000;
-}
-
-p.edu-info a:hover    {
-    color: #669933;
-}
-
-p.time    {
-    margin: 0px;
-}
-
-p.summary    {
-    margin: 10px 0px 0px 0px;
+.description {
+padding-left: 36px;
+background: rgba(240, 246, 248, 0.13);
+font-size: 16px;
 }
 
 
-#skills ul.list1    {    
-    float: left;
-    list-style: none;
-    margin: 0px 0px 0px -20px;
-    width: 220px;
-}
 
-#skills ul.list2    {    
-    float: left;
-    list-style: none;
-    margin: 0px 0px 0px 0px;
-    width: 320px;
-}
+/* ==========================================================================
+/* -- Tablet Devices (Layout, Modifications, etc)
+   ========================================================================== */
+@media only screen and (min-width: 720px) and (max-width: 979px) {
+    body {background: #fff;}
+    #content {border: 0;width: auto;margin: 0;border-radius: 0;}
+    #experience details {width: calc(100% /2.2);}
 
-#skills li {
-    padding: 0px 0px 0px 25px;
-}
-#skills li:before {
-    content: "* ";
-}
-
-abbr    {
-    border-width: 0px;
-}
+} /* End Tablet Media Query */
 
 
-/* Footer
---------------------------------------------------- */
 
-#footer    {
-    margin: 60px 40px 0px 40px;
-}
 
-#footer    img {
-    border: 0px;
-}
 
-#footer .footer_content    {
-    width: 700px;
-    overflow: auto;
-    margin: auto;
-    border: #fff solid 2px;
-    background-color: #dcdcdc;
-}
+/* ==========================================================================
+/* -- Mobile Devices (Layout, Modifications, etc)
+   ========================================================================== */
+@media only screen and (max-width: 719px) {
+    body {background: #fff;}
+    #content {padding: 0;border: 0;width: auto;margin: 0;border-radius: 0;}
+    #experience details, #skills details {width: auto;}
 
-#footer ul.icons_1    {
-    float: left;
-    width: 525px;
-    margin: 15px 10px 10px 15px;
-    padding: 0px;
-}
 
-#footer ul.icons_2    {
-    float: right;
-    width: 100px;
-    margin: 10px 20px 10px 10px;
-    padding: 0px;
-}
-
-#footer .icons_1 li, #footer .icons_2 li { 
-    margin: 0px 0px 0px 7px; 
-    padding: 0px; 
-    list-style-type: none; 
-    display: inline; 
-}
-
-#footer a    {
-    color: #000;
-}
-
-#footer a:hover    {
-    color: #669933;
-}
-
-#footer a    {
-    color: #000;
-}
-
-#footer .pdfLink {
-    font-size: 12px;
-    line-height: 42px;
-    white-space: nowrap;
-}
-
-#footer    .credits {
-    float: none;
-    clear: both;
-    margin: 10px 0px 20px 0px;
-    font-size: 12px;
-    text-align: center;
-}
-
-#footer    .credits a    {
-    font-weight: normal;
-}
+} /* End Mobile Media Query */

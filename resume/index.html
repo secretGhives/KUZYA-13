@@ -2,228 +2,139 @@
 <html>
 <head>
 	<title>Resume - Alekse Kuzenkov</title>
-	<link rel="stylesheet" href="style.css">
+
+	<link href="bootstrap.min.css" rel="stylesheet">
+	<link href="bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+  <script src="../js/libs/jquery.js"></script>
+  <script src="bootstrap.min.js"></script>
 </head>
 <body>
-<!-- Begin Wrapper -->
-<div id="wrapper">
 
-<!-- Begin Content Area -->
-<div id="content">
+	<div id="content">
+		<header id="contact-details" itemscope itemtype="http://schema.org/Person">
+			<div id="qr_code" title="vCard for Alekse Kuzenkov"></div>
+			<div class="profile_details">
+				<h1><span itemprop="fullName">Alekse Kuzenkov</span></h1>
+				<h3><span itemprop="jobTitle">UI Developer / Designer</span></h3>
+				<ul class="contacts">
+					<li class="phone"><span itemprop="telephone">+(506) 8939-1807</span> (Costa Rica)</li>
+					<li class="email"><a href="mailto:akuzenkov@gmail.com" itemprop="email">akuzenkov@gmail.com</a></li>
+					<li class="website inline"><a rel="me" itemprop="url" href="//kuzya.com" title="kuzya.com">kuzya.com</a></li>
+					<li class="linkedin inline"><a rel="me" itemprop="url" href="//www.linkedin.com/profile/view?id=227964927" title="My LinkedIn Profile">linkIn</a></li>
+					<li class="github inline"><a rel="me" itemprop="url" href="//github.com/secretgspot" title="My GitHub Profile">gitHub</a></li>
+				</ul>
+			</div>
+		</header>
 
-<!-- Begin Header -->
-<header>
+		<section id="profile">
+			<h1>Profile</h1>
 
-<!-- Begin Contact Section -->
-<section id="contact-details">
-<div itemscope itemtype="http://schema.org/Person">
+			<div class="tabbable tabs-left">
+			  <ul class="nav nav-tabs">
+			    <li class="active"><a href="#uideveloper" data-toggle="tab">UI Developer</a></li>
+			    <li class=""><a href="#designer" data-toggle="tab">Designer</a></li>
+			  </ul>
+			  <div class="tab-content">
+			    <div class="summary tab-pane active" id="uideveloper">
+			      <p>Self-Motivated quick learner, specializing in front-end development, graphics and general tech support.
+							Comfortable with Win, Linux, OsX. Have passion for attacking new challenges and problems.</p>
+			    </div>
+			    <div class="summary tab-pane" id="designer">
+			      <p>Web Designer with over 10 years of expierence in website design and development, attention to detail and directing resources to deadlines. Posses a wide knowledge of programming code in addition to Adobe/Autodesk software.</p>
+			    </div>
+			  </div>
+			</div>
+		</section>
 
-<!-- Begin Profile Image Section -->
-<div class="header_1">
-<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0AVERSION%3A2.1%0AFN%3AAlekse%20Kuzenkov%0AN%3AKuzenkov%3BAlekse%0ATITLE%3AFront-End%20Developer%0ATEL%3BCELL%3A(506)%208939-1807%0AEMAIL%3BHOME%3BINTERNET%3Aemail%40kuzya.com%0AEMAIL%3BWORK%3BINTERNET%3Aakuzenkov%40gmail.com%0AURL%3Ahttp%3A%2F%2Fkuzya.com%0AADR%3A%3B%3B%3B%3B%3B%3BCosta%20Rica%0AORG%3AKUZYA%20Inc%0AEND%3AVCARD%0A&#38;size=250x250&#38;prov=goqrme" itemprop="image" width="250" height="250" alt="Alekse Kuzenkov" />
-</div>
-<!-- End Profile Image Section -->
+		<section id="skills">
+			<h1>Skills</h1>
 
-<!-- Begin Profile Information Section -->
-<div class="header_2">
+			<details open>
+				<summary>Lang.</summary>
+				<li>HTML5</li>
+				<li>CSS3</li>
+				<li>LESS/SCSS</li>
+				<li>JQuery</li>
+			</details>
 
-<h1><span itemprop="name">Alekse Kuzenkov</span></h1>
-<h3><span itemprop="jobTitle">Front-End Developer / Designer</span></h3>
+			<details open>
+				<summary>Tools</summary>
+				<li>Backbone.js</li>
+			</details>
 
-<!-- Begin PostalAddress Schema -->
-<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-<ul class="info_1">
-<li class="address"><span itemprop="addressCountry">Costa Rica</span></li>
-</ul>
-</div>
-<!-- End PostalAddress Schema -->
+			<details open>
+				<summary>Apps.</summary>
+				<li>Common IDE</li>
+				<li>Adobe Ps, Ai, Ae</li>
+				<li>Autodesk Maya</li>
+				<li>Many more..</li>
+			</details>
+		</section>
 
-<ul class="info_2">
-<li class="phone"><span itemprop="telephone">(506) 8939-1807</span></li>
-<li class="email"><a href="mailto:akuzenkov@gmail.com" itemprop="email">akuzenkov@gmail.com</a></li>
-<li class="site_url"><a rel="me" itemprop="url" href="//kuzya.com" title="kuzya.com">kuzya.com</a></li>
-<li class="linkedin"><a rel="me" itemprop="url" href="http://www.linkedin.com/profile/view?id=227964927" title="My LinkedIn Profile">profile</a></li>
-</ul>
+		<section id="experience">
+			<h1>Experience</h1>
 
-</div>
-<!-- End Profile Information Section -->
+			<details open>
+				<summary><span itemprop="jobTitle">Front-End Developer</span></summary>
+				<span itemprop="name">OSC - Open Source Consultants</span>
+				<span class="time">June 2009 &#45; Present</span>
+				<p itemprop="description" class="description">&bull; [Front-End Development] - Of large scale applications using HTML5, CSS3 and JQuery technologies</p>
+			</details>
 
-</div>
-</section>
-<!-- End Contact Section -->
+			<details open>
+				<summary><span itemprop="jobTitle">Tech Support</span></summary>
+				<span itemprop="name">STREAM Global; Costa Rica</span>
+				<span class="time">2007 &#45; 2009</span>
+				<p itemprop="description" class="description">
+					&bull; [HP Technical Support] - In-bound calls troubleshooting Laptops<br/>
+					&bull; [Slingmedia Tech Support] - In-bound calls troubleshooting Slingboxes
+					</p>
+			</details>
 
-</header>
-<!-- End Header -->
+			<details open>
+				<summary><span itemprop="jobTitle">Graphic Designer</span></summary>
+				<span itemprop="name">The Loan Corporation; CA USA</span>
+				<span class="time">2006 &#45; 2007</span>
+				<p itemprop="description" class="description">
+					&bull; [theloancorporation.com] - ajax based web app. (jquery, css2, html)<br/>
+					&bull; [programinator] - asp.net ajax based loan matrix app. (.net, sql, ms ajax, css2, html)<br/>
+					&bull; Marketing campaign. (Catalogs, Mail-Outs, Newsletters, Post-Cards, Fliers, Promo)
+					</p>
+			</details>
 
-<div class="clear">&nbsp;</div>
+			<details open>
+				<summary><span itemprop="jobTitle">Art Director</span></summary>
+				<span itemprop="name">eXtreme Designs Ent; CA USA</span>
+				<span class="time">2004 &#45; 2006</span>
+				<p itemprop="description" class="description">
+					&bull; [curvesetters.com] - e-Commerce web app. (sql, css2, .net)<br/>
+					&bull; [starting ahead] - e-Commerce web app. (xml, css2, xslt)<br/>
+					&bull; Marketing campaign. (Catalog, Newsletters, Daily art release)
+					</p>
+			</details>
 
-<!-- Begin Profile Section -->
-<dl>
-<dt>Profile:</dt>
-<dd>
+			<details open>
+				<summary><span itemprop="jobTitle">IT / Designer</span></summary>
+				<span itemprop="name">JustBeyond.Net; CA USA</span>
+				<span class="time">2002 &#45; 2004</span>
+				<p itemprop="description" class="description">
+					&bull; [justbeyond.net] - e-Commerce web app. (sql, css2, .net)<br/>
+					&bull; Marketing campaign. (Catalog, Newsletters, Promo Material)
+					</p>
+			</details>
 
-<section class="summary">
-Self-Motivated quick learner, specializing in front-end development,  graphics and general tech support.
-Comfortable with Win, Linux, OsX. Have passion for attacking new challenges and problems. 
-</section>
-
-</dd>
-</dl>
-<!-- End Profile Section -->
-
-<div class="clear">&nbsp;</div>
-
-<!-- Begin Skills Section -->
-<div itemscope itemtype="http://schema.org/ItemList">
-
-<dl>
-<dt itemprop="name">Skills:</dt>
-<dd>
-
-<section id="skills">
-<ul class="list1">
-<li itemprop="itemListElement">HTML5</li>
-<li itemprop="itemListElement">Javascript</li>
-</ul>
-<ul class="list2">
-<li itemprop="itemListElement">CSS3</li>
-    <li itemprop="itemListElement">Adobe/Autodeck Software</li>
-</ul>
-</section>
-
-</dd>
-</dl>
-
-</div>
-<!-- End Skills Section -->
-
-<div class="clear">&nbsp;</div>
-
-<!-- Begin Experience Section -->
-<dl>
-<dt>Experience:</dt>
-
-<dd>
-
-<section id="experience">
-
-<!-- Position #1 -->
-<div itemscope itemtype="http://schema.org/Organization">
-
-<h2 class="top"><span itemprop="jobTitle">Front-End Developer / Designer</span></h2>
-<p class="bus1"><span itemprop="name">OSC - Open Source Consultants</span></p>
-<p class="time">June 2009 &#45; Present</p>
-
-<p itemprop="description">
-&bull; [Front-End Development] - Of large scale applications using HTML5, CSS3 and JQuery technologies
-</p>
-
-</div>
-
-<!-- Position #2 -->
-<div itemscope itemtype="http://schema.org/Organization">
-
-<h2><span itemprop="jobTitle">Customer Service / Tech Support</span></h2>
-<p class="bus1"><span itemprop="name">STREAM Global; Costa Rica</span></p>
-<p class="time">2007 &#45; 2009</p>
-
-<p itemprop="description">
-&bull; [HP Technical Support] - In-bound calls troubleshooting Laptops<br/>
-&bull; [Slingmedia Tech Support] - In-bound calls troubleshooting Slingboxes
-</p>
-
-</div>
-
-<!-- Position #3 -->
-<div itemscope itemtype="http://schema.org/Organization">
-
-<h2><span itemprop="jobTitle">Graphic Designer / Marketing</span></h2>
-<p class="bus1"><span itemprop="name">The Loan Corporation; CA USA</span></p>
-<p class="time">2006 &#45; 2007</p>
-
-<p itemprop="description">
-&bull; [theloancorporation.com] - ajax based web app. (jquery, css2, html)<br/>
-&bull; [programinator] - asp.net ajax based loan matrix app. (.net, sql, ms ajax, css2, html)<br/>
-&bull; Marketing campaign. (Catalogs, Mail-Outs, Newsletters, Post-Cards, Fliers, Promo)
-</p>
-
-</div>
-
-<!-- Position #4 -->
-<div itemscope itemtype="http://schema.org/Organization">
-
-<h2><span itemprop="jobTitle">Art Director</span></h2>
-<p class="bus1"><span itemprop="name">eXtreme Designs Ent; CA USA</span></p>
-<p class="time">2004 &#45; 2006</p>
-
-<p itemprop="description">
-&bull; [curvesetters.com] - e-Commerce web app. (sql, css2, .net)<br/>
-&bull; [starting ahead] - e-Commerce web app. (xml, css2, xslt)<br/>
-&bull; Marketing campaign. (Catalog, Newsletters, Daily art release)
-</p>
-
-</div>
-<!-- Position #5 -->
-<div itemscope itemtype="http://schema.org/Organization">
-
-<h2><span itemprop="jobTitle">IT / Designer</span></h2>
-<p class="bus1"><span itemprop="name">JustBeyond; CA USA</span></p>
-<p class="time">2002 &#45; 2004</p>
-
-<p itemprop="description">
-&bull; [justbeyond.net] - e-Commerce web app. (sql, css2, .net)<br/>
-&bull; Marketing campaign. (Catalog, Newsletters, Promo Material)
-</p>
-
-</div>
-<!-- Position #6 -->
-<div itemscope itemtype="http://schema.org/Organization">
-
-<h2><span itemprop="jobTitle">Manager / IT</span></h2>
-<p class="bus1"><span itemprop="name">Cyber-Net Gaming; CA USA</span></p>
-<p class="time">1999 &#45; 2002</p>
-
-<p itemprop="description">
-&bull; [cng-icafe.net] - interactive UI web app. (sql, css2, .net)<br/>
-&bull; Marketing campaign. (Brand, Fliers, Mail-Outs)
-</p>
-
-</div>
-</section>
-
-</dd>
-</dl>
-<!-- End Experience Section -->
-
-<div class="clear">&nbsp;</div>
-
-<!-- Begin Footer -->
-<footer id="footer">
-
-<!-- Begin Footer Content -->
-<div class="footer_content">
-
-<!-- Begin Social Media and Download Links -->
-<div itemscope itemtype="http://schema.org/Person">
-
-<ul class="icons_1">
-<li><a rel="me" itemprop="url" href="http://www.linkedin.com/profile/view?id=227964927" title="LinkedIn">LinkedIn</a></li>
-<li><a rel="me" itemprop="url" href="http://github.com/secretgspot" title="My Github">GitHub</a></li>
-</ul>
-
-<ul class="icons_2" style="display:none">
-<li><a href="resume.pdf" title="Download Resume PDF" class="pdfLink">Download as PDF</a></li>
-</ul>
-
-</div><!-- End Social Media and Download Links -->
-</div><!-- End Footer Content -->
-</footer><!-- End Footer -->
-    
-<div class="clear">&nbsp;</div>
-    
-</div><!-- End Content -->
-</div><!-- End Wrapper -->
-
+			<details open>
+				<summary><span itemprop="jobTitle">Manager / IT</span></summary>
+				<span itemprop="name">Cyber-Net Gaming; CA USA</span>
+				<span class="time">1999 &#45; 2002</span>
+				<p itemprop="description" class="description">
+					&bull; [cng-icafe.net] - interactive UI web app. (sql, css2, .net)<br/>
+					&bull; Marketing campaign. (Brand, Fliers, Mail-Outs)
+					</p>
+			</details>
+		</section>
+	</div>
 
 </body>
 </html>
