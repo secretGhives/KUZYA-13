@@ -53,7 +53,7 @@
         $.getJSON(url, 'callback=?', $.proxy(function(json) {
 
             // initialize album html content
-            this.html("<span class='picasagallery_header' role='link'>&larr;</span><span class='picasagallery_title'></span><div id='album_wrap'></div><div id='image_wrap'></div>");
+            this.html("<span class='picasagallery_header' onclick=\"javascript: _gaq.push(['_trackPageview', 'Albums']);\" role='link'>&larr;</span><span class='picasagallery_title'></span><div id='album_wrap'></div><div id='image_wrap'></div>");
             this.children('span.picasagallery_header, span.picasagallery_title').hide();
             this.children('div:last').hide();
             this.children('span[class="picasagallery_header"]:first').click($.proxy(picasagallery_load_albums, this));
@@ -113,7 +113,6 @@
 
         // initialize album html content
         dom.children('div:last').html('<div class="loader"><div class="innerLoader"></div></div>').show();
-        //dom.children('span.picasagallery_header').show();
         dom.children('div:first').hide();
 
         // make ajax call to get album's images
@@ -122,7 +121,7 @@
             // set album's title
             var album_header = dom.children('span[class="picasagallery_title"]:first').html('<span class="picasagallery_album_name">' + json.feed.title.$t + '</span>').hide();
             if (data.inline)
-                album_header.find('span:last').wrap('<a href="#"></a>').parent().data('album', album).click(function(e) {
+                album_header.find('span:last').wrap("<a onclick=\"javascript: _gaq.push(['_trackPageview', '"+json.feed.title.$t+"']);\" href='#'></a>").parent().data('album', album).click(function(e) {
                     if (!e)
                         e = window.event;
                     if (e.preventDefault)
