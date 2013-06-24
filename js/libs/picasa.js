@@ -163,18 +163,9 @@
 
             // append blank div to resize parent elements
             dom.children('div:last')
-            .append('<span class="picasagallery_thumbnail gAd">'+
-                '<script type="text/javascript">'+
-                'google_ad_client = "ca-pub-9651184030086049";'+
-                '/* gallery box */'+
-                'google_ad_slot = "8225907609";'+
-                'google_ad_width = 300;'+
-                'google_ad_height = 250;'+
-                '</script>'+
-                '<script type="text/javascript"'+
-                'src="http://pagead2.googlesyndication.com/pagead/show_ads.js">'+
-                '</script></span>')
-            .append('<div style="clear:both"></div>');
+            .append('<span id="googleAd" class="picasagallery_thumbnail gAd"></span>')
+            .append('<div id="clear" style="clear:both"></div>');
+
 
             // setup fancybox to show larger images
             $("a[rel=picasagallery_thumbnail]").click(function(e) {
@@ -203,6 +194,31 @@
                 $(".picasagallery_title").hide();
                 return false;
             });
+
+            var googleAds = function() {
+              // ugly global vars :-P
+              window.google_ad_client = "ca-pub-9651184030086049";
+              window.google_ad_slot = "8225907609";
+              window.google_ad_width = 300;
+              window.google_ad_height = 250;
+              // inject script, bypassing same-source
+              var container = document.getElementById("googleAd");
+                var w = document.write;
+                document.write = function (content) {
+                    container.innerHTML = content;
+                    document.write = w;
+                };
+
+              var script = document.createElement('script');
+              script.type = 'text/javascript';
+              script.src = 'http://pagead2.googlesyndication.com/pagead/show_ads.js';
+              document.body.appendChild(script);
+              //target.appendChild(script);
+              console.log('fired google ad');
+            }
+
+            googleAds();
+
 
 
             busy = false;
