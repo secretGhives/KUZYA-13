@@ -20,8 +20,6 @@ $(document).ready(function() {
 			$("#social-links, #sublogo").addClass('hide');
 
 			$curtainOpen = true;
-			// send analytics
-			_gaq.push(['_trackEvent', 'Logo', 'opened']);
 
 		} else {
 
@@ -32,8 +30,6 @@ $(document).ready(function() {
 			$("#social-links, #sublogo").removeClass('hide');
 
 			$curtainOpen = false;
-			// send analytics
-			_gaq.push(['_trackEvent', 'Logo', 'closed']);
 
 		}
 
