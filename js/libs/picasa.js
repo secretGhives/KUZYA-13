@@ -53,7 +53,8 @@
         $.getJSON(url, 'callback=?', $.proxy(function(json) {
 
             // initialize album html content
-            this.html("<span class='picasagallery_header' role='link'>Back to Albums</span><span class='picasagallery_title'></span><div id='album_wrap'></div><div id='image_wrap'></div>");
+            this.html("<span class='picasagallery_header' role='link'>&larr;</span><span class='picasagallery_title'></span><div id='album_wrap'></div><div id='image_wrap'></div>");
+            this.children('span.picasagallery_header, span.picasagallery_title').hide();
             this.children('div:last').hide();
             this.children('span[class="picasagallery_header"]:first').click($.proxy(picasagallery_load_albums, this));
 
@@ -104,7 +105,6 @@
             return;
         busy = true;
 
-        //var dom = $(this).parent().parent().parent(); // original album element
         var dom = $('.picasagallery');
         var data = dom.data('picasagallery'); // original options passed to picasagallery()
         var album = $(this).data('album');
@@ -113,13 +113,14 @@
 
         // initialize album html content
         dom.children('div:last').html('<div class="loader"><div class="innerLoader"></div></div>').show();
+        //dom.children('span.picasagallery_header').show();
         dom.children('div:first').hide();
 
         // make ajax call to get album's images
         $.getJSON(url, 'callback=?', $.proxy(function(json) {
 
             // set album's title
-            var album_header = dom.children('span[class="picasagallery_title"]:first').html('<span class="picasagallery_album_name">' + json.feed.title.$t + '</span>');
+            var album_header = dom.children('span[class="picasagallery_title"]:first').html('<span class="picasagallery_album_name">' + json.feed.title.$t + '</span>').hide();
             if (data.inline)
                 album_header.find('span:last').wrap('<a href="#"></a>').parent().data('album', album).click(function(e) {
                     if (!e)
@@ -134,6 +135,7 @@
 
             // reset album html
             dom.children('div:last').html('');
+            dom.children('span.picasagallery_header, span.picasagallery_title').show();
 
             // loop through album's images
             for(i = 0; i < json.feed.entry.length; i++) {
@@ -165,34 +167,33 @@
             dom.children('div:last').append('<div style="clear:both"></div>');
 
             // setup fancybox to show larger images
-            if (data.inline)
-                $("a[rel=picasagallery_thumbnail]").click(function(e) {
-                    if (!e)
-                        e = window.event;
-                    if (e.preventDefault)
-                        e.preventDefault();
-                    else
-                        e.returnValue = false;
-                    //dom.children('div:last').html('<img data-kuzya="Pics" src="'+ $(this).prop('href') +'" />');
-                    dom.children('#image_wrap').html('<span role="image" id="image" style="background-image:url('+ $(this).prop('href') +')" />');
-                    return false;
-                });
-            else
-                $("a[rel=picasagallery_thumbnail]").fancybox({
-                    closeClick        : false, // If set to true, fancyBox will be closed when user clicks the content
-                    mouseWheel        : false, // If set to true, you will be able to navigate gallery using the mouse wheel
-                    loop              : true, // If set to true, enables cyclic navigation. This means, if you click "next" after you reach the last element, first element will be displayed (and vice versa).
-                    openEffect        : 'elastic', // Animation effect ('elastic', 'fade' or 'none')
-                    closeEffect       : 'elastic', // Animation effect ('elastic', 'fade' or 'none')
-                    nextEffect        : 'elastic', // Animation effect ('elastic', 'fade' or 'none')
-                    prevEffect        : 'elastic', // Animation effect ('elastic', 'fade' or 'none')
-                    helpers           : {
-                        thumbs  : {
-                            width   : 80,
-                            height  : 80
-                        }
-                    }
-                });
+            $("a[rel=picasagallery_thumbnail]").click(function(e) {
+                if (!e)
+                    e = window.event;
+                if (e.preventDefault)
+                    e.preventDefault();
+                else
+                    e.returnValue = false;
+                //dom.children('div:last').html('<img data-kuzya="Pics" src="'+ $(this).prop('href') +'" />');
+                dom.children('#image_wrap').html('<span role="image" id="image" style="background-image:url('+ $(this).prop('href') +')" />');
+                dom.children('span.picasagallery_header').hide();
+                dom.children('span.picasagallery_title').show().find(".picasagallery_album_name").html('&larr;');
+                return false;
+            });
+
+            // setup fancybox to show larger images
+            $("span.picasagallery_header").click(function(e) {
+                if (!e)
+                    e = window.event;
+                if (e.preventDefault)
+                    e.preventDefault();
+                else
+                    e.returnValue = false;
+                $(this).hide();
+                $(".picasagallery_title").hide();
+                return false;
+            });
+
 
             busy = false;
         }, this));

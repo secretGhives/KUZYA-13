@@ -125,6 +125,10 @@ body {
 	}
 }
 
+// Content
+#content {
+	.frame-it;
+}
 
 // View of Galleries
 #galleries {
@@ -135,10 +139,7 @@ body {
 	#album_wrap {
 		display: block;
 		position: absolute;
-		top: 50px;
-		bottom: 50px;
-		left: 0;
-		right: 0;
+		.frame-it;
 
 		.picasagallery_album {
 			display: inline-block;
@@ -151,6 +152,9 @@ body {
 				text-align: right;
 				background: @title-background;
 				padding: 13px 13px 0;
+				color: #fff;
+				font-size: 23px;
+				line-height: 1;
 			}
 			em {
 				font-size: 11px;
@@ -167,12 +171,15 @@ body {
 		z-index: 3;
 		position: fixed;
 		top: 13px;
-		right: 119px;
-		width: 0;
-		height: 0;
-		border-top: 18px solid transparent;
-		border-bottom: 16px solid transparent;
-		border-right: 42px solid @title-background;
+		right: 139px;
+		width: 55px;
+		height: 32px;
+		line-height: 23px;
+		background: rgba(255, 255, 255, 0.42);
+		color: #000;
+		cursor: pointer;
+		text-align: center;
+		font-size: 32px;
 	}
 	.picasagallery_title {
 		z-index: 4;
@@ -180,12 +187,16 @@ body {
 		top: @top-right-corner;
 		right: @top-right-corner;
 		background: @title-background;
-		padding: 9px 13px;
-		width: 99px;
+		width: 123px;
+		height: 32px;
 		text-align: center;
+		cursor: pointer;
 		a {
 			text-decoration: none;
 			color: #000;
+			display: block;
+			height: 100%;
+			line-height: 30px;
 		}
 	}
 	.picasagallery_thumbnail {
