@@ -79,7 +79,7 @@
 
                 // append html for this album
                 this.children('div:first').append(
-                    "<div class='picasagallery_album' style='background-image: url(" +
+                    "<div class='picasagallery_album' onclick=\"javascript: _gaq.push(['_trackPageview', 'Album/"+album_title+"']);\" style='background-image: url(" +
                     img_src + '/s' + data.thumbnail_width + ( data.thumbnail_cropped ? '-c' : '' ) + '/' + img_filename +
                     ")'><img src='" +
                     img_src + '/s' + data.thumbnail_width + ( data.thumbnail_cropped ? '-c' : '' ) + '/' + img_filename +
@@ -146,9 +146,8 @@
                 var img_filename = img_src.pop();
                 var img_src = img_src.join('/');
                 var screen_width = $(window).width();
-
                 // add html for this image
-                var html = "<a rel='picasagallery_thumbnail' class='picasagallery_thumbnail' href='" +
+                var html = "<a rel='picasagallery_thumbnail' class='picasagallery_thumbnail' onclick=\"javascript: _gaq.push(['_trackPageview', '"+json.feed.title.$t+"/"+img_filename+"']);\" href='" +
                            img_src + '/s' + screen_width + '/' + img_filename +
                            "' title='" +
                            summary +
