@@ -87,7 +87,6 @@
                     "' style='display:none;'/><strong>" + album_title + "</strong><em>" +
                     json.feed.entry[i].gphoto$numphotos.$t +
                     ' photos' +
-                    ( data.link_to_picasa ? '<a href="'+album_link+'" title="View Album on Picasa" style="position:relative;margin-left:6px;" target="_blank"><img src="chain-icon.gif" alt="chain-icon" style="margin:0;top:4px;position:relative;"/></a>' : '') +
                     '</em></div>'
                 ).children('div:last').data('album', json.feed.entry[i].gphoto$name.$t).click(picasagallery_load_album);
             }
@@ -145,8 +144,9 @@
                 var img_filename = img_src.pop();
                 var img_src = img_src.join('/');
                 var screen_width = $(window).width();
+                var untitled = summary ? summary : img_filename;
                 // add html for this image
-                var html = "<a rel='picasagallery_thumbnail' class='picasagallery_thumbnail' onclick=\"javascript: _gaq.push(['_trackPageview', '"+json.feed.title.$t+"/"+img_filename+"']);\" href='" +
+                var html = "<a rel='picasagallery_thumbnail' class='picasagallery_thumbnail' onclick=\"javascript: _gaq.push(['_trackPageview', '"+json.feed.title.$t+"/"+untitled+"']);\" href='" +
                            img_src + '/s' + screen_width + '/' + img_filename +
                            "' title='" +
                            summary +
