@@ -23,8 +23,8 @@
 
 // Base styles
 @keyframes rotate-logo {
-	0%   { transform: perspective(814px) rotateY(-10deg); }
-	100% { transform: perspective(814px) rotateY(10deg); }
+	0%   { transform: perspective(666px) rotateY(-13deg); }
+	100% { transform: perspective(666px) rotateY(13deg); }
 }
 
 body {
@@ -46,10 +46,10 @@ body {
 	z-index: 9;
 	bottom: 0;
 	width: @center;
-	.transition(0.1s, ease-in);
+	.transition(600ms, cubic-bezier(0.19, 1, 0.22, 1));
 	&.open {
 		background: #fff;
-		.transition(1s, ease-out);
+		.transition(600ms, cubic-bezier(0.19, 1, 0.22, 1));
 	}
 }
 .right {
@@ -60,10 +60,10 @@ body {
 	position: absolute;
 	z-index: 9;
 	width: @center;
-	.transition(0.1s, ease-in);
+	.transition(600ms, cubic-bezier(0.19, 1, 0.22, 1));
 	&.open {
 		background: #fff;
-		.transition(1s, ease-out);
+		.transition(600ms, cubic-bezier(0.19, 1, 0.22, 1));
 	}
 }
 .logo {
@@ -77,41 +77,20 @@ body {
 	z-index: 11;
 	background-image: url(/img/kuzyaLogo.png);
 	background-size: cover;
-	.transition(0.333s, ease-in);
+	.transition(600ms, cubic-bezier(0.68, -0.55, 0.265, 1.55));
 	.user-select(none);
 	cursor: pointer;
 	&.open {
 		//top: 0;
 		//left: 0;
 		.scale(0.5);
-		.transition(0.333s, ease-out);
+		.transition(600ms, cubic-bezier(0.68, -0.55, 0.265, 1.55));
 		//.pointer-events(none);
 	}
 	&.hide {
 		.scale(0);
-		.transition(0.333s, ease-out);
+		.transition(600ms, cubic-bezier(0.68, -0.55, 0.265, 1.55));
 		.pointer-events(none);
-	}
-}
-#sublogo {
-	transform-style: preserve-3d;
-	animation: rotate-logo 2s infinite alternate ease-in-out;
-	transform: perspective(800px) rotateY(0deg);
-	transition: all 2s ease-in-out;
-
-	position: absolute;
-	top: @center;
-	left: @center;
-	margin-top: -@base-logo-dimensions / 2;
-	margin-left: -@base-logo-dimensions / 2;
-	width: @base-logo-dimensions + 2;
-	height: @base-logo-dimensions + 2;
-	opacity: 0.3;
-	z-index: 10;
-	background-image: url(/img/kuzyaLogo.png);
-	background-size: cover;
-	&.hide {
-		display: none;
 	}
 }
 #social-links {
@@ -151,6 +130,7 @@ body {
 			width: calc(100% / 3);
 			height: 100%;
 			background-size: cover;
+			cursor: pointer;
 			strong {
 				display: block;
 				text-align: right;
@@ -240,6 +220,7 @@ body {
   right: 50%;
   background: #000;
   animation: loader 1s infinite;
+  transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 @keyframes loader {
