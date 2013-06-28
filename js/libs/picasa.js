@@ -196,29 +196,32 @@
             });
 
             var googleAds = function() {
-              // ugly global vars :-P
-              window.google_ad_client = "ca-pub-9651184030086049";
-              window.google_ad_slot = "8225907609";
-              window.google_ad_width = 300;
-              window.google_ad_height = 250;
-              // inject script, bypassing same-source
-              var container = document.getElementById("googleAd");
+
+                $('#google_script').remove();
+
+                window.google_ad_client = "ca-pub-9651184030086049";
+                window.google_ad_slot = "8225907609";
+                window.google_ad_width = 300;
+                window.google_ad_height = 250;
+                // inject script, bypassing same-source
+                var container = document.getElementById("googleAd");
                 var w = document.write;
                 document.write = function (content) {
                     container.innerHTML = content;
                     document.write = w;
                 };
 
-              var script = document.createElement('script');
-              script.type = 'text/javascript';
-              script.src = 'http://pagead2.googlesyndication.com/pagead/show_ads.js';
-              document.body.appendChild(script);
-              //target.appendChild(script);
-              console.log('fired google ad');
+                // create script
+                var script = document.createElement('script');
+                script.id = "google_script";
+                script.type = 'text/javascript';
+                script.src = 'http://pagead2.googlesyndication.com/pagead/show_ads.js';
+                document.body.appendChild(script);
+                //console.log('added google ads script');
+
             }
 
             googleAds();
-
 
 
             busy = false;
