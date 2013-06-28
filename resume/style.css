@@ -66,7 +66,30 @@ font-size: 18px;
 margin: 6px;
 padding: 3px 6px;
 border: 1px solid;
+position: relative;
+background: rgba(222, 222, 222, 0.42);
+z-index: 1;
 }
+details li:before {
+content: "";
+position: absolute;
+background: #fff;
+top: 0;
+bottom: 0;
+right: 0;
+z-index: -1;
+}
+li.one:before {left:10%;}
+li.two:before {left:20%;}
+li.three:before {left:30%;}
+li.four:before {left:40%;}
+li.five:before {left:50%;}
+li.six:before {left:60%;}
+li.seven:before {left:70%;}
+li.eight:before {left:80%;}
+li.nine:before {left:90%;}
+li.zero:before {left:0;}
+
 
 #experience details {
 display: inline-block;
