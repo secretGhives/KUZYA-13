@@ -161,13 +161,13 @@
                 dom.children('div:last').append(html);
             }
 
-            // append blank div to resize parent elements
+            // append blank div to resize parent elements and add google ads
             dom.children('div:last')
             .append('<span id="googleAd" class="picasagallery_thumbnail gAd"></span>')
             .append('<div id="clear" style="clear:both"></div>');
 
 
-            // setup fancybox to show larger images
+            // setup box to show larger images
             $("a[rel=picasagallery_thumbnail]").click(function(e) {
                 if (!e)
                     e = window.event;
@@ -182,7 +182,7 @@
                 return false;
             });
 
-            // setup fancybox to show larger images
+            // back button
             $("span.picasagallery_header").click(function(e) {
                 if (!e)
                     e = window.event;
