@@ -100,6 +100,7 @@
     };
 
     var picasagallery_load_album = function() {
+
         if(busy)
             return;
         busy = true;
@@ -177,8 +178,41 @@
                     e.returnValue = false;
                 //dom.children('div:last').html('<img data-kuzya="Pics" src="'+ $(this).prop('href') +'" />');
                 dom.children('#image_wrap').html('<span role="image" id="image" style="background-image:url('+ $(this).prop('href') +')" />');
+                dom.children('#image_wrap').append('<div id="liker"><div><div></div></div><span>Hover</span></div>');
                 dom.children('span.picasagallery_header').hide();
                 dom.children('span.picasagallery_title').show().find(".picasagallery_album_name").html('&larr;');
+
+
+
+
+                // Activate Image liker
+                var isdone=false, imgTitle=$(this).prop('title');
+                $("#liker > div").mouseover(function() {
+                  if (!isdone){
+                    $("#liker > span").html("<strong>Hold</strong> it");
+                    $("#liker > div > div").addClass("zoom");
+                  }
+                  timer = setTimeout(done, 1000);
+                });
+                $("#liker > div").mouseout(function() {
+                  clearTimeout(timer);
+                  if (!isdone){
+                    $("#liker > span").text("Hover");
+                    $("#liker > div > div").removeClass("zoom");
+                  }
+                });
+                function done() {
+                  $("#liker > span").text("Done!");
+                  isdone=true;
+                  _gaq.push(['_trackPageview', 'liked ' + imgTitle]);
+                  //console.log( 'liked ' + imgTitle );
+                }
+
+
+
+
+
+
                 return false;
             });
 
@@ -195,10 +229,9 @@
                 return false;
             });
 
+            // Google Ads
             var googleAds = function() {
-
                 $('#google_script').remove();
-
                 window.google_ad_client = "ca-pub-9651184030086049";
                 window.google_ad_slot = "8225907609";
                 window.google_ad_width = 300;
@@ -210,7 +243,6 @@
                     container.innerHTML = content;
                     document.write = w;
                 };
-
                 // create script
                 var script = document.createElement('script');
                 script.id = "google_script";
@@ -218,9 +250,7 @@
                 script.src = 'http://pagead2.googlesyndication.com/pagead/show_ads.js';
                 document.body.appendChild(script);
                 //console.log('added google ads script');
-
             }
-
             googleAds();
 
 
@@ -271,5 +301,7 @@
         picasagallery_load_albums.apply(this);
         return this;
     };
+
+
 
 }) ( window, jQuery );

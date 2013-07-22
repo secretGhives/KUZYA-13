@@ -229,3 +229,46 @@ body {
  	from { left:50%; right:50%; }
   to { left:0; right:0; }
 }
+
+
+// Image Liker
+#liker {
+	width: 81px;
+	height: 81px;
+	z-index: 10;
+	position: fixed;
+	bottom: 12px;
+	left: 13px;
+  > div {
+    width: 42px;
+    height: 42px;
+    margin: 0px auto;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    user-select:none;
+
+    > div {
+      width: 20px;
+      height: 20px;
+      margin: 10px auto;
+      background: #fff;
+
+      border-radius: 50%;
+      transition: all .1s ease;
+      &.zoom {
+        width: 42px;
+        height: 42px;
+        margin-top: 0px;
+        transition: all 1s ease;
+      }
+    }
+
+  }
+  > span {
+    text-align: center;
+    width: 100%;
+    display: block;
+    color: honeydew;
+		font-size: 0.8em;
+  }
+}
