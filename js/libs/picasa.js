@@ -186,7 +186,7 @@
 
 
                 // Activate Image liker
-                var isdone=false, imgTitle=$(this).prop('title');
+                var isdone=false, imgTitle = $(this).prop('title') ? $(this).prop('title') : $(this).prop('url');
                 $("#liker > div").mouseover(function() {
                   if (!isdone){
                     $("#liker > span").html("<strong>Hold</strong> it");
