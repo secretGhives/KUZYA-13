@@ -204,7 +204,7 @@
                 function done() {
                   $("#liker > span").text(" :) ");
                   isdone=true;
-                  _gaq.push(['_trackPageview', 'liked ' + imgTitle]);
+                  _gaq.push(['_trackEvent', 'liked', imgTitle]);
                   //console.log( 'liked ' + imgTitle );
                 }
 
