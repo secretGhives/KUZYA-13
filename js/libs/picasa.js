@@ -202,7 +202,7 @@
                   }
                 });
                 function done() {
-                  $("#liker > span").text("Done!");
+                  $("#liker > span").text(" :) ");
                   isdone=true;
                   _gaq.push(['_trackPageview', 'liked ' + imgTitle]);
                   //console.log( 'liked ' + imgTitle );

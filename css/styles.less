@@ -243,17 +243,36 @@ body {
     width: 42px;
     height: 42px;
     margin: 0px auto;
-    border: 1px dashed rgba(255,255,255,0.6);
-    border-radius: 50%;
+    //border: 1px dashed rgba(255,255,255,0.6);
+    //border-radius: 50%;
     user-select:none;
-
+    // heart
     > div {
       width: 20px;
       height: 20px;
       margin: 10px auto;
-      background: #fff;
+      //background: #fff;
 
-      border-radius: 50%;
+	    position: relative;
+			&:before,&:after {
+			  position:absolute;
+			  content:"";
+			  left:25px;
+			  top:0;
+			  width:25px;
+			  height:40px;
+			  background:#f33;
+			  border-radius:25px 25px 0 0;
+			  transform:rotate(-45deg);
+			  transform-origin:0 100%;
+			}
+			&:after {
+			  left:0;
+			  transform:rotate(45deg);
+			  transform-origin:100% 100%;
+			}
+
+      //border-radius: 50%;
       transition: all .1s ease;
       &.zoom {
         width: 42px;
