@@ -53,7 +53,7 @@
         $.getJSON(url, 'callback=?', $.proxy(function(json) {
 
             // initialize album html content
-            this.html("<span class='picasagallery_header' onclick=\"javascript: _gaq.push(['_trackPageview', 'Albums']);\" role='link'>&larr;</span><span class='picasagallery_title'></span><div id='album_wrap'></div><div id='image_wrap'></div>");
+            this.html("<span class='picasagallery_header' onclick=\"javascript: _gaq.push(['_trackPageview', 'Albums']);\" role='link'>&larr;</span><span class='picasagallery_title'></span><div id='album_wrap'></div><div id='image_wrap' itemscope itemtype='http://n.whatwg.org/work'></div>");
             this.children('span.picasagallery_header, span.picasagallery_title').hide();
             this.children('div:last').hide();
             this.children('span[class="picasagallery_header"]:first').click($.proxy(picasagallery_load_albums, this));
@@ -177,7 +177,7 @@
                 else
                     e.returnValue = false;
                 //dom.children('div:last').html('<img data-kuzya="Pics" src="'+ $(this).prop('href') +'" />');
-                dom.children('#image_wrap').html('<span role="image" id="image" style="background-image:url('+ $(this).prop('href') +')" />');
+                dom.children('#image_wrap').html('<span role="image" itemprop="work" id="image" style="background-image:url('+ $(this).prop('href') +')" />');
                 dom.children('#image_wrap').append('<div id="liker"><div><div></div></div><span>Hover</span></div>');
                 dom.children('span.picasagallery_header').hide();
                 dom.children('span.picasagallery_title').show().find(".picasagallery_album_name").html('&larr;');
