@@ -178,7 +178,7 @@
                     e.returnValue = false;
                 //dom.children('div:last').html('<img data-kuzya="Pics" src="'+ $(this).prop('href') +'" />');
                 dom.children('#image_wrap').html('<span role="image" itemprop="work" id="image" style="background-image:url('+ $(this).prop('href') +')" />');
-                dom.children('#image_wrap').append('<div id="liker"><div><div></div></div><span>Hover</span></div>');
+                dom.children('#image_wrap').append('<div id="liker"><span>Hover</span><div></div></div>');
                 dom.children('span.picasagallery_header').hide();
                 dom.children('span.picasagallery_title').show().find(".picasagallery_album_name").html('&larr;');
 
@@ -186,27 +186,50 @@
 
 
                 // Activate Image liker
-                var isdone=false, imgTitle = $(this).prop('title') ? $(this).prop('title') : $(this).prop('href');
-                $("#liker > div").mouseover(function() {
-                  if (!isdone){
-                    $("#liker > span").html("<strong>Hold</strong> it");
-                    $("#liker > div > div").addClass("zoom");
-                  }
-                  timer = setTimeout(done, 1000);
-                });
-                $("#liker > div").mouseout(function() {
-                  clearTimeout(timer);
-                  if (!isdone){
-                    $("#liker > span").text("Hover");
-                    $("#liker > div > div").removeClass("zoom");
-                  }
-                });
+                var hasTouch = 'ontouchstart' in window, isdone=false, imgTitle = $(this).prop('title') ? $(this).prop('title') : $(this).prop('href');
+                if (!hasTouch && typeof DocumentTouch !== "undefined") { hasTouch = document instanceof DocumentTouch; }
+                if (hasTouch) {
+                    $("#liker").bind("touchstart", function() {
+                      if (!isdone){
+                        $("#liker > span").html("<strong>Hold</strong> it");
+                        $("#liker > div").addClass("zoom");
+                      }
+                      timer = setTimeout(done, 1000);
+                    });
+
+                    $("#liker").bind("touchend", function() {
+                      clearTimeout(timer);
+                      if (!isdone){
+                        $("#liker > span").text("Hover");
+                        $("#liker > div").removeClass("zoom");
+                      }
+                    });
+                } else {
+                    $("#liker").mouseover(function() {
+                      if (!isdone){
+                        $("#liker > span").html("<strong>Hold</strong> it");
+                        $("#liker > div").addClass("zoom");
+                      }
+                      timer = setTimeout(done, 1000);
+                    });
+
+                    $("#liker").mouseout(function() {
+                      clearTimeout(timer);
+                      if (!isdone){
+                        $("#liker > span").text("Hover");
+                        $("#liker > div").removeClass("zoom");
+                      }
+                    });
+                }
                 function done() {
-                  $("#liker > span").text(" :) ");
+                  $("#liker > span").text(":)");
                   isdone=true;
                   _gaq.push(['_trackEvent', 'liked', imgTitle]);
-                  //console.log( 'liked ' + imgTitle );
                 }
+
+
+
+
 
 
 
