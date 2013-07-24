@@ -182,9 +182,6 @@
                 dom.children('span.picasagallery_header').hide();
                 dom.children('span.picasagallery_title').show().find(".picasagallery_album_name").html('&larr;');
 
-
-
-
                 // Activate Image liker
                 var hasTouch = 'ontouchstart' in window, isdone=false, imgTitle = $(this).prop('title') ? $(this).prop('title') : $(this).prop('href');
                 if (!hasTouch && typeof DocumentTouch !== "undefined") { hasTouch = document instanceof DocumentTouch; }
@@ -223,17 +220,10 @@
                 }
                 function done() {
                   $("#liker > span").text(":)");
+                  $("#liker > div").addClass("liked");
                   isdone=true;
                   _gaq.push(['_trackEvent', 'liked', imgTitle]);
                 }
-
-
-
-
-
-
-
-
 
 
                 return false;
