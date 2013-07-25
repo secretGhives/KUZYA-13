@@ -37,7 +37,7 @@
         // restore album list from hidden div if exists
         if(data.loaded) {
             this.children('div:last').html('<div class="loader"><div class="innerLoader"></div></div>').hide();
-            this.children('span[class="picasagallery_title"]:first').html('');
+            this.children('span.picasagallery_title').html('');
             this.children('div:first').show();
             busy = false;
             return;
@@ -119,7 +119,7 @@
         $.getJSON(url, 'callback=?', $.proxy(function(json) {
 
             // set album's title
-            var album_header = dom.children('span[class="picasagallery_title"]:first').html('<span class="picasagallery_album_name">' + json.feed.title.$t + '</span>').hide();
+            var album_header = dom.children('span.picasagallery_title').html('<span class="picasagallery_album_name">' + json.feed.title.$t + '</span>').hide();
             if (data.inline)
                 album_header.find('span:last').wrap("<a onclick=\"javascript: _gaq.push(['_trackPageview', '"+json.feed.title.$t+"']);\" href='#'></a>").parent().data('album', album).click(function(e) {
                     if (!e)
@@ -134,7 +134,7 @@
 
             // reset album html
             dom.children('div:last').html('');
-            dom.children('span.picasagallery_header, span.picasagallery_title').show();
+            dom.children('span.picasagallery_header, span.picasagallery_title').removeClass("full").show();
 
             // loop through album's images
             for(i = 0; i < json.feed.entry.length; i++) {
@@ -170,17 +170,19 @@
 
             // setup box to show larger images
             $("a[rel=picasagallery_thumbnail]").click(function(e) {
-                if (!e)
+                if (!e) {
                     e = window.event;
-                if (e.preventDefault)
+                }
+                if (e.preventDefault) {
                     e.preventDefault();
-                else
+                } else {
                     e.returnValue = false;
+                }
                 //dom.children('div:last').html('<img data-kuzya="Pics" src="'+ $(this).prop('href') +'" />');
                 dom.children('#image_wrap').html('<span role="image" itemprop="work" id="image" style="background-image:url('+ $(this).prop('href') +')" />');
                 dom.children('#image_wrap').append('<div id="liker"><span>Hover</span><div></div></div>');
                 dom.children('span.picasagallery_header').hide();
-                dom.children('span.picasagallery_title').show().find(".picasagallery_album_name").html('&larr;');
+                dom.children('span.picasagallery_title').addClass("full").show().find(".picasagallery_album_name").html('');
 
                 // Activate Image liker
                 var hasTouch = 'ontouchstart' in window, isdone=false, imgTitle = $(this).prop('title') ? $(this).prop('title') : $(this).prop('href');
@@ -237,10 +239,10 @@
                     e.preventDefault();
                 else
                     e.returnValue = false;
-                $(this).hide();
-                $(".picasagallery_title").hide();
+                $(".picasagallery_title, .picasagallery_header").hide();
                 return false;
             });
+
 
             // Google Ads
             var googleAds = function() {
