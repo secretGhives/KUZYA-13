@@ -180,7 +180,7 @@
                 }
                 //dom.children('div:last').html('<img data-kuzya="Pics" src="'+ $(this).prop('href') +'" />');
                 dom.children('#image_wrap').html('<span role="image" itemprop="work" id="image" style="background-image:url('+ $(this).prop('href') +')" />');
-                dom.children('#image_wrap').append('<div id="liker"><span>Hover</span><div></div></div>');
+                dom.children('#image_wrap').append('<div id="liker"><span>Hover</span><div></div></div><div class="cursor">Click to go Back</div>');
                 dom.children('span.picasagallery_header').hide();
                 dom.children('span.picasagallery_title').addClass("full").show().find(".picasagallery_album_name").html('');
 
@@ -190,7 +190,7 @@
                 if (hasTouch) {
                     $("#liker").bind("touchstart", function() {
                       if (!isdone){
-                        $("#liker > span").html("<strong>Hold</strong> it");
+                        $("#liker > span, .cursor").html("<strong>Hold</strong> it");
                         $("#liker > div").addClass("zoom");
                       }
                       timer = setTimeout(done, 1000);
@@ -199,14 +199,14 @@
                     $("#liker").bind("touchend", function() {
                       clearTimeout(timer);
                       if (!isdone){
-                        $("#liker > span").text("Hover");
+                        $("#liker > span, .cursor").text("Hover");
                         $("#liker > div").removeClass("zoom");
                       }
                     });
                 } else {
                     $("#liker").mouseover(function() {
                       if (!isdone){
-                        $("#liker > span").html("<strong>Hold</strong> it");
+                        $("#liker > span, .cursor").html("<strong>Hold</strong> it");
                         $("#liker > div").addClass("zoom");
                       }
                       timer = setTimeout(done, 1000);
@@ -215,12 +215,14 @@
                     $("#liker").mouseout(function() {
                       clearTimeout(timer);
                       if (!isdone){
+                        $(".cursor").text("Click to go Back");
                         $("#liker > span").text("Hover");
                         $("#liker > div").removeClass("zoom");
                       }
                     });
                 }
                 function done() {
+                  $(".cursor").text("Click to go Back");
                   $("#liker > span").text(":)");
                   $("#liker > div").addClass("liked");
                   isdone=true;

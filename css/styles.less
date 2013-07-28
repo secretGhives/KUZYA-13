@@ -33,6 +33,7 @@
 
 body {
 	.frame-it;
+	overflow: hidden;
 }
 
 // Google Ads
@@ -82,7 +83,7 @@ body {
   background: url(/img/hover.png) 0 0 no-repeat;
   animation: bird-hover 1s steps(14) infinite;
 	background-size: cover;
-	.transition(600ms, cubic-bezier(0.68, -0.55, 0.265, 1.55));
+	.transition(900ms, cubic-bezier(0.68, -0.55, 0.265, 1.55));
 	.user-select(none);
 	cursor: default;
 	&.open {
@@ -91,11 +92,15 @@ body {
 		.scale(0.5);
 		//.transition(600ms 420ms, cubic-bezier(0.68, -0.55, 0.265, 1.55));
 		//.pointer-events(none);
+		transform: opacity 1s ease;
+		opacity:1;
 	}
 	&.hide {
-		.scale(0);
+		.scale(1000);
 		//.transition(600ms 420ms, cubic-bezier(0.68, -0.55, 0.265, 1.55));
 		.pointer-events(none);
+		transform: opacity 1s ease;
+		opacity:0;
 	}
 }
 @keyframes bird-glide {
@@ -117,7 +122,7 @@ body {
 	font-size: 12px;
 	position: fixed;
 	bottom: @bottom-right-corner;
-	right: @top-right-corner;
+	right: @top-right-corner + 30;
 	z-index: 12;
 	.transition(1s, ease-in);
 	.user-select(none);
@@ -131,12 +136,15 @@ body {
 // Content
 #content {
 	.frame-it;
+	overflow-y: auto;
 }
 
 // View of Galleries
 #galleries {
 	.frame-it;
 	z-index: 2;
+	overflow-x: hidden;
+	overflow-y: auto;
 
 	// Galleries level
 	#album_wrap {
@@ -228,6 +236,16 @@ body {
 }
 
 
+// cursor
+.cursor{
+	background:rgba(255,255,255,.5);
+	cursor:pointer;
+	display:inline-block;
+  padding: 3px 6px;
+  position: absolute;
+  font-size: 0.6em;
+}
+
 
 
 // Loader
@@ -261,7 +279,7 @@ body {
 #liker {
   user-select:none;
 	position: fixed;
-	bottom: 22px; left: 13px;
+	bottom: 32px; left: 13px;
   height: 42px; width: 69px;
   text-align: center;
   z-index: 10;
