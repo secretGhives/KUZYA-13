@@ -67,8 +67,7 @@ function Curtains() {
     this.open = function () {
     	if ( isOpen == false ) {
     		console.log( "opening curtains");
-    		$(".left").stop().animate({width:'0px'}, 0.1 ).addClass("open");
-    		$(".right").stop().animate({width:'0px'}, 0.1 ).addClass("open");
+    		$("#content").stop().delay(2000).animate({opacity:'1'}, 1 );
     		$(".logo").addClass("open");
 
     		isOpen = true;
@@ -79,8 +78,7 @@ function Curtains() {
     },
     this.close = function () {
     	console.log( "closing curtains" );
-    	$(".left").stop().animate({width:'50%'}, 0.1 ).removeClass("open");
-    	$(".right").stop().animate({width:'50%'}, 0.1 ).removeClass("open");
+    	$("#content").stop().animate({opacity:'0'}, 0.6 );
     	$(".logo").removeClass("open");
 
     	isOpen = false;

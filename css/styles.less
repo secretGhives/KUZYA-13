@@ -43,34 +43,14 @@ body {
 
 
 // First Interface
-.left {
-	background: #fff;
-	top: 0;
-	left: 0;
-	position: absolute;
-	z-index: 9;
-	bottom: 0;
-	width: @center;
-	.transition(@primary-time, @primary-curve);
+#content {
+	opacity: 0;
 	&.open {
-		background: #fff;
+		opacity: 1;
 		.transition(@primary-time, @primary-curve);
 	}
 }
-.right {
-	bottom: 0;
-	background: #fff;
-	right: 0;
-	top: 0;
-	position: absolute;
-	z-index: 9;
-	width: @center;
-	.transition(@primary-time, @primary-curve);
-	&.open {
-		background: #fff;
-		.transition(@primary-time, @primary-curve);
-	}
-}
+
 .logo {
 	position: absolute;
 	top: @center;
@@ -81,27 +61,27 @@ body {
 	height: @base-logo-height;
 	z-index: 11;
   background: url(/img/hover.png) 0 0 no-repeat;
-  animation: bird-hover 1s steps(14) infinite;
+  animation: fly-in 2s 1, bird-hover 1s steps(14) infinite;
 	background-size: cover;
 	.transition(900ms, cubic-bezier(0.68, -0.55, 0.265, 1.55));
 	.user-select(none);
 	cursor: default;
 	&.open {
-		//top: 0;
-		//left: 0;
 		.scale(0.5);
-		//.transition(600ms 420ms, cubic-bezier(0.68, -0.55, 0.265, 1.55));
 		//.pointer-events(none);
 		transform: opacity 1s ease;
 		opacity:1;
 	}
 	&.hide {
-		.scale(1000);
-		//.transition(600ms 420ms, cubic-bezier(0.68, -0.55, 0.265, 1.55));
+		.scale(6);
 		.pointer-events(none);
 		transform: opacity 1s ease;
 		opacity:0;
 	}
+}
+@keyframes fly-in {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
 }
 @keyframes bird-glide {
     0% {background-position: 0 0;} //3766 3497
