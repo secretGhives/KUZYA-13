@@ -1,16 +1,4 @@
   @import "mixins.less"; // Import the base mixins
-
-  // Global Defaults
-  @mobile-width:              100%;
-  @tablet-width:              700px;
-  @desktop-width:             940px;
-
-
-  // Resonsive Design Break Points
-  @mobile-breakpoint:         @tablet-width + 19px;
-  @tablet-breakpoint:         @tablet-width + 20px;
-  @desktop-breakpoint:        @desktop-width + 39px;
-
   // Heading                  Size
   @h1:                        40;
   @h2:                        32;
@@ -79,35 +67,11 @@ html { font-size: 100%; }
   padding: 8px;
   .rounded(5);
 }
-
 .no-desktop { .none(); }
-
-
-
-
-
-/* ==========================================================================
-/* -- Tablet Devices (Layout, Modifications, etc)
-   ========================================================================== */
-@media only screen and (min-width: @tablet-breakpoint) and (max-width: @desktop-breakpoint) {
-  .picasagallery_thumbnail {
-    width: calc(100% / 2) !important;
-  }
-
-} /* End Tablet Media Query */
-
-
-
-
-
-/* ==========================================================================
-/* -- Mobile Devices (Layout, Modifications, etc)
-   ========================================================================== */
-@media only screen and (max-width: @mobile-breakpoint) {
-
-/* Mobile Grid */
-  .picasagallery_thumbnail {
-    width: calc(100% / 1) !important;
-  }
-
-} /* End Mobile Media Query */
+.frame-it {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
